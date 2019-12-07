@@ -6,13 +6,26 @@ html {
   color: White;
 }
 
-.cd-logo, .kitchen-equipment {
+.cd-logo {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #642580;
+    background-size: cover;
+    min-height: 50%;
+  }
+
+.kitchen-equipment, .cake-ingredients {
   position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #642580;
   background-size: cover;
-  min-height: 100%;
+  min-height: 50%;
+
+  /* Add Parallax Effect */
+  background-attachment: fixed;
+  opacity: 0.7;
 }
 
 .cd-logo {
@@ -23,6 +36,10 @@ html {
 
 .kitchen-equipment {
   background-image: url("utensils.JPG");
+}
+
+.cake-ingredients {
+    background-image: url("ingredients.jpg");
 }
 
 h3 {
@@ -36,4 +53,19 @@ h3 {
 .textSection {
   background-color: #642580;
   padding: 50px 80px;
+}
+
+.caption {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+.border {
+    background-color: #41BAC1;
+    color: white;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
 }
