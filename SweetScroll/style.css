@@ -69,3 +69,10 @@ h3 {
     font-size: 25px;
     letter-spacing: 10px;
 }
+
+/* Turn off parallax scrolling for tablets and phones as it is not supported */
+@media only screen and (max-device-width: 1024px) {
+    .cd-logo, .layer-cake, .kitchen-equipment, .cake-ingredients, .bowl-of-cakemix, .cake-in-oven, .decorated-cake {
+        background-attachment: scroll;
+    }
+}
