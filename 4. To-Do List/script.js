@@ -10,6 +10,23 @@ emptyButton.addEventListener("click", emptyList);
 var saveButton = document.getElementById("save-button");
 saveButton.addEventListener("click", saveList);
 
+var toDoEntryBox = document.getElementById("todo-entry-box");
+var toDoList = document.getElementById("todo-list");
+
 function addToDoItem() {
-  alert("Add button clicked!");
+  var itemText = toDoEntryBox.value;
+  newToDoItem(itemText, false);
+}
+
+function newToDoItem(itemText, completed) {
+  var toDoItem = document.createElement("li");
+  var toDoText = document.createTextNode(itemText);
+  toDoItem.appendChild(toDoText);
+
+  if (completed) {
+    toDoItem.classList.add("completed");
+  }
+
+  toDoList.appendChild(toDoItem);
+  toDoItem.addEventListener("dblclick", toggleToDoItemState);
 }
