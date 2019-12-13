@@ -5,18 +5,18 @@ var toDoList = document.getElementById("todo-list");
 var addButton = document.getElementById("add-button");
 addButton.addEventListener("click", addToDoItem);
 
-// var clearButton = document.getElementById("clear-completed-button");
-// clearButton.addEventListener("click", clearCompletedToDoItem);
+var clearButton = document.getElementById("clear-completed-button");
+clearButton.addEventListener("click", clearCompletedToDoItems);
 
-// var emptyButton = document.getElementById("empty-button");
-// emptyButton.addEventListener("click", emptyList);
+var emptyButton = document.getElementById("empty-button");
+emptyButton.addEventListener("click", emptyList);
 
 // var saveButton = document.getElementById("save-button");
 // saveButton.addEventListener("click", saveList);
 
 function addToDoItem() {
-    var itemText = toDoEntryBox.value;
-    newToDoItem(itemText, false);
+  var itemText = toDoEntryBox.value;
+  newToDoItem(itemText, false);
 }
 
 function newToDoItem(itemText, completed) {
@@ -30,4 +30,27 @@ function newToDoItem(itemText, completed) {
 
   toDoList.appendChild(toDoItem);
   toDoItem.addEventListener("dblclick", toggleToDoItemState);
+}
+
+function toggleToDoItemState() {
+  if (this.classList.contains("completed")) {
+    this.classList.remove("completed");
+  } else {
+    this.classList.add("completed");
+  }
+}
+
+function clearCompletedToDoItems() {
+  var completedItems = toDoList.getElementsByClassName("completed");
+
+  while (completedItems.length > 0) {
+    completedItems.item(0).remove();
+  }
+}
+
+function emptyList() {
+  var toDoItems = toDoList.children;
+  while (toDoItems.length > 0) {
+    toDoItems.item(0).remove();
+  }
 }
